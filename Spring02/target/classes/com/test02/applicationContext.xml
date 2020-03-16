@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="my" class="com.test02.Address">
+	
+	</bean>
+	<bean id="friend01" class="com.test02.Address">
+		<constructor-arg index="0" value="김동찬"></constructor-arg>
+		<constructor-arg index="1">
+			<value>한숲</value>
+		</constructor-arg>
+		<constructor-arg value="0101010101"></constructor-arg>
+	</bean>
+	
+	<bean id="friend02" class="com.test02.Address">
+		<constructor-arg index="0" value="임윤섭"></constructor-arg>
+		<constructor-arg index="1" value="대전"></constructor-arg>
+		<constructor-arg index="2" value="1010101010101"></constructor-arg>	
+	</bean>
+	
+	
+</beans>

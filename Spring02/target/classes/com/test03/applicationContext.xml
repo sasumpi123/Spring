@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="my" class="com.test03.Address">
+		<property name="addr" value="흥덕"/>
+		<property name="name" value="임성훈"/>
+		<property name="phone" value="010-4871-5771"/>
+	</bean>
+
+	<bean id="hong" class="com.test03.Address">
+		<property name="addr" value="수원"/>
+		<property name="name" value="홍길동"/>
+		<property name="phone" value="010-2343-2341"/>
+	</bean>
+	
+	<bean id="self" class="com.test03.Address"></bean>
+</beans>
