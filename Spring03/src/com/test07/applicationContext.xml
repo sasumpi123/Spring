@@ -5,7 +5,7 @@
 	<bean id="lg" class="com.test07.LGTV">
 	</bean>
 	
-	<bean id="samsung" class="com.test07.SamsungTV" abstract="true">
+	<bean id="samsung" class="com.test07.SamsungTV" lazy-init="true">
 	</bean>
 
 </beans>
