@@ -1,0 +1,17 @@
+SpringMVC03
+0. root-context파일의 이름을 application-context로 변경하고 기존에 src- main - webapp - WEB_INF - spring 에 있던 파일을 appServlet으로 옮
+1. pom.xml : ojdbc6(+ repository), mybatis, mybatis-spring, commons-dbcp, spring-orm(Object Relational Mapping)
+2. web.xml : applicationContext.xml, mapping(*.do), encoding filter
+3. /WEB-INF/spring/sqls/myboard.sql
+4.1 src/main/java/ -> dto, dao, biz, controller
+		src/main/java/??/HomeController.java -> 경로 /home.do
+5. src/main/resources/ -> mybatis/board-mapper.xml (new -> xml -> dtd -> mapper)
+		board-mapper.xml cache namespace 지우고 mapper태그안에 namespace
+6. src/main/resources/mybatis/ -> db.properties
+7. /WEB-INF/spring/sqls/ -> config.xml 
+8. applicationContext.xml, servlet-context.xml 
+		applicationContext.xml -> (db.properties사용하기 위한 객체)
+		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		(dataSource) <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		(mybatis) <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		(sqlSessionTemplate) <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
