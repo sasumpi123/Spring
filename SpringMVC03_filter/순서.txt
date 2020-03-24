@@ -1,6 +1,6 @@
 SpringMVC03
 0. root-context파일의 이름을 applicationContext로 변경하고 기존에 src- main - webapp - WEB_INF - spring 에 있던 파일을 appServlet으로 옮
-1. pom.xml : ojdbc6(+ repository), mybatis, mybatis-spring, commons-dbcp, spring-orm(Object Relational Mapping)- springframework와 버전맞추기
+1. pom.xml : ojdbc6(+ repository), mybatis, mybatis-spring, commons-dbcp, spring-orm(Object Relational Mapping)
 2. web.xml : applicationContext.xml, mapping(*.do), encoding filter
 3. /WEB-INF/spring/sqls/myboard.sql
 4.1 src/main/java/ -> dto, dao, biz, controller
