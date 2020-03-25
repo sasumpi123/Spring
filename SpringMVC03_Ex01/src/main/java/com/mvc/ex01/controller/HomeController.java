@@ -1,4 +1,4 @@
-package com.mvc.upgrade;
+package com.mvc.ex01.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -11,16 +11,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
-import com.mvc.upgrade.model.biz.BoardBiz;
-import com.mvc.upgrade.model.dto.BoardDto;
+import com.mvc.ex01.biz.BoardBiz;
+import com.mvc.ex01.biz.BoardBizImpl;
+import com.mvc.ex01.dto.BoardDto;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	
 	@Autowired
 	private BoardBiz biz;
 	
@@ -42,10 +44,11 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	
 	@RequestMapping(value = "/list.do")
 	public String selectList(Model model){
 		logger.info("SELECT LIST");
-		
 		
 		model.addAttribute("list", biz.selectList());
 		
@@ -91,7 +94,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/updateres.do")
-	public String updateRes(Model model, int myno, String mytitle, String mycontent) {
+	public String updateRes(Model model, int myno, String mytitle, String mycontent, RedirectAttributes redirectAttribute ) {
 		logger.info("UPDATE");
 		BoardDto dto = new BoardDto();
 		dto.setMytitle(mytitle);
@@ -102,7 +105,8 @@ public class HomeController {
 		System.out.println(dto.getMyno());
 		int res = biz.update(dto);
 		if(res>0){
-			return "redirect:detail.do?myno="+myno;
+			redirectAttribute.addAttribute("myno",myno);
+			return "redirect:detail.do";
 		}else {
 			return "updateform";
 		}
@@ -120,9 +124,5 @@ public class HomeController {
 			return "detail";
 		}
 	}
-	
-	
-	
-	
 	
 }
