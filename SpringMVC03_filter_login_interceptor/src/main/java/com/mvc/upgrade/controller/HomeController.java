@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mvc.upgrade.model.biz.BoardBiz;
 import com.mvc.upgrade.model.dto.BoardDto;
+import com.mvc.upgrade.model.dto.MemberDto;
 
 /**
  * Handles requests for the application home page.
@@ -60,11 +63,11 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/insertres.do")
-	public String insertRes(Model model, String myname, String mytitle, String mycontent) {
-		
-		BoardDto dto = new BoardDto(0,myname,mytitle,mycontent,null);
+	public String insertRes(HttpSession session, Model model, String mytitle, String mycontent) {
+		MemberDto memberDto =(MemberDto)session.getAttribute("login");
+		BoardDto boardDto = new BoardDto(0,memberDto.getMemberid(),mytitle,mycontent,null);
 		int res = 0;
-		res = biz.insert(dto);
+		res = biz.insert(boardDto);
 		if(res>0){
 			return "redirect:list.do";
 		}else {

@@ -18,7 +18,12 @@ public class LoginInterceptor implements HandlerInterceptor {
 			throws Exception {
 		logger.info("[INTERCEPTOR] : preHandle");
 
-		if(request.getRequestURI().contains("/loginform.do")||request.getRequestURI().contains("ajaxlogin.do")||request.getSession().getAttribute("login")!=null||request.getRequestURI().contains("registform.do")||request.getRequestURI().contains("ajaxidchk.do")||request.getRequestURI().contains("regist.do")) {
+		if(request.getRequestURI().contains("/loginform.do")||
+				request.getRequestURI().contains("ajaxlogin.do")||
+				request.getSession().getAttribute("login")!=null||
+				request.getRequestURI().contains("registform.do")||
+				request.getRequestURI().contains("ajaxidchk.do")||
+				request.getRequestURI().contains("regist.do")) {
 			return true;
 		}else if(request.getSession().getAttribute("login")==null) {
 			response.sendRedirect("loginform.do");
