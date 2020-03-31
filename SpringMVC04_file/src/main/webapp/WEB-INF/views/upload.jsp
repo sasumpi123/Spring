@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,24 +10,17 @@
 </head>
 <body>
 
-	<form:form method="post" enctype="multipart/form-data"
-		modelAttribute="uploadFile" action="upload">
+	<form:form method="post" enctype="multipart/form-data" modelAttribute="uploadFile" action="upload">
 		<h3>UPLOAD form</h3>
-		file<br />
-		<input type="file" name="mpfile" />
-		<br />
+		file<br/>
+		<input type="file" name="mpfile"/><br/>
 		<p style="color: red; font-weight: bold;">
 			<form:errors path="mpfile"></form:errors>
-		</p>
-		<br />
-		description<br />
-		<textarea rows="10" cols="60" name="desc"></textarea>
-		<br />
-		<input type="submit" value="send" />
+		</p><br/>
+		description<br/>
+		<textarea rows="10" cols="60" name="desc"></textarea><br/>
+		<input type="submit" value="send"/>
 	</form:form>
-	<!-- 
-	1. application/www-form-unlencoded : 문자들이 encoding 됨 (default)
-	
-	 -->
+
 </body>
 </html>
